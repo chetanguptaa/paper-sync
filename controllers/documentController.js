@@ -43,7 +43,7 @@ const collaborate = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: `${username} failed to join on the document` });
     }
-  }
+}
 
 module.exports = {
     createDocument,
