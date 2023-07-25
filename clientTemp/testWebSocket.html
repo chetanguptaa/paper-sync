@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>WebSocket Test</title>
+    </head>
+
+    <body>
+        <h1>WebSocket Test</h1>
+        <button onclick="connect()">Connect to WebSocket</button>
+        <button onclick="disconnect()">Disconnect</button>
+        <button onclick="sendDocumentUpdate()">Send Document Update</button>
+        <button onclick="sendCursorUpdate()">Send Cursor Update</button>
+
+        <script>
+            let socket; 
+
+            function connect() {
+                socket = io.connect(); 
+                socket.emit('joinDocument', 'document123');
+                console.log('Connected to WebSocket server.');
+            }
+
+            function disconnect() {
+                socket.disconnect();
+                console.log('Disconnected from WebSocket server.');
+            }
+
+            function sendDocumentUpdate() {
+                const data = { content: 'This is a document update.' };
+                socket.emit('documentUpdate', data);
+                console.log('Sent document update:', data);
+            }
+        
+            function sendCursorUpdate() {
+                const data = { position: 50 };
+                socket.emit('cursorUpdate', data);
+                console.log('Sent cursor update:', data);
+            }
+          </script>
+          
+        <script src="/socket.io/socket.io.js"></script>
+    </body>
+
+</html>
