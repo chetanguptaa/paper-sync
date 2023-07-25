@@ -20,6 +20,7 @@
     "omit": "^1.0.1",
     "pino": "^8.14.1",
     "pino-pretty": "^10.1.0",
+    "socket.io": "^4.7.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
