@@ -2,7 +2,6 @@ const socketIO = require('socket.io');
 const log = require('../utils/logger');
 const Document = require('../models/documentModel');
 
-// Export a function that takes the server as an argument
 module.exports = (server) => {
     const io = socketIO(server);
     const connectedClients = new Map();
@@ -21,6 +20,7 @@ module.exports = (server) => {
                     document.collaborators.push(username);
                     await document.save();
                 }
+                io.emit('documentUpdated', document);
             } catch (error) {
                 log.error('Error adding collaborators to the document: ', error);
             }
