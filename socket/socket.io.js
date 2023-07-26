@@ -1,9 +1,14 @@
-const socketIO = require('socket.io');
 const log = require('../utils/logger');
 const Document = require('../models/documentModel');
+const { Server } = require("socket.io");
+
 
 module.exports = (server) => {
-    const io = socketIO(server);
+    const io = new Server(server, {
+        cors: {
+          origin: "http://localhost:5173"
+        }
+    });
     const connectedClients = new Map();
 
     io.on('connection', (socket) => {
