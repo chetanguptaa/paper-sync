@@ -6,15 +6,13 @@ const { connect } = require('./utils/connect');
 const userRouter = require('./routes/userRoutes');
 const documentRouter = require('./routes/documentRoutes');
 const socketSetup = require('./socket/socket.io.js');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(userRouter);
 app.use(documentRouter);
-
-app.get('', (req, res) => {
-  res.sendFile(__dirname + '/clientTemp/testWebSocket.html');
-});
 
 const server = http.createServer(app);
 
