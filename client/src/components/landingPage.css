@@ -1,0 +1,18 @@
+body {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.card {
+    background-color: white;
+    color: black;
+    border: 1px solid skyblue;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
