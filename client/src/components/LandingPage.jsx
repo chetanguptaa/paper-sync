@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import './landingPage.css';
+import './styles/landingPage.css';
 
 export const LandingPage = () => {
   return (
